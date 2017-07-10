@@ -1,0 +1,18 @@
+<div class="u-cf header">
+  <div class="u-pull-right">
+    <% if current_user %>
+    <h5>
+      <%= current_user.name %>
+      <%= form_tag('/logout', style: 'display: inline') do |f| %>
+      <%= submit_tag 'Logout' %>
+      <% end %>
+    </h5>
+    <% else %>
+    <%= form_tag('/login') do |f| %>
+    <%= text_field_tag :name, '', :placeholder => "Name" %>
+    <%= submit_tag 'Login', class: "button-primary" %>
+    <%= link_to 'Sign Up', new_user_path, class: "button" %>
+    <% end %>
+    <% end %>
+  </div>
+</div>
